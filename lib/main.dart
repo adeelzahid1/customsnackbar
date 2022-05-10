@@ -42,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ..clearSnackBars()..showSnackBar(
         SnackBar(
           content: Stack(
+            clipBehavior: Clip.none,
             children: [
               Container(
                 padding: const EdgeInsets.all(16.0),
@@ -65,11 +66,52 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 )),
-                SvgPicture.asset('assets/images/next.svg',
-                 height: 40.0,
-                  width: 40.0,
-                //  color: Colors.white,
-                 )
+                Positioned(
+                  bottom: 5.0,
+                  left: 10.0,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20.0)),
+                    child: SvgPicture.asset('assets/images/next.svg',
+                     height: 40.0,
+                      width: 40.0,
+                    //  color: Colors.white,
+                     ),
+                  ),
+                ),
+                 Positioned(
+                  top: -20.0,
+                  left: MediaQuery.of(context).size.width / 3,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20.0)),
+                    child: Stack(
+                      children: [
+                        SvgPicture.asset('assets/images/ic_check_icon.svg',
+                         height: 40.0,
+                          width: 40.0,
+                         ),
+                         Positioned(
+                           top: 4, left: 10,
+                           child: SvgPicture.asset('assets/images/ic_setting_icon.svg',
+                           height: 20.0,
+                            width: 20.0,
+                           ),
+                         ),
+                      ],
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: 20.0,
+                  right: 10.0,
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(20.0)),
+                    child: SvgPicture.asset('assets/images/ic_setting_icon.svg',
+                     height: 40.0,
+                      width: 40.0,
+                    //  color: Colors.white,
+                     ),
+                  ),
+                )
             ],
           ),
           behavior: SnackBarBehavior.floating,
